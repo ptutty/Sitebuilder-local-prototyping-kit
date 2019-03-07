@@ -1,10 +1,6 @@
 {% include 'partials/header.njk' %}
 
 
-<link href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" rel="stylesheet" type="text/css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" type="text/javascript"> </script>
-
-
     <main class="id7-main-content-area" id="main">
       <header>
                     <div class="id7-horizontal-divider">
@@ -25,14 +21,11 @@
           <div class="column-1">
             <div class="column-1-content">
 
-							<div class="hp-layout slideshow-2017 slideshow-layout-2017 slideshow-light-theme">
-                {# {% include 'components/tile-carosel.njk' %} #}
-								{% include 'components/tile-carosel.njk' %}
+              {% include 'components/grid-test.njk' %}
 
-
+							<div class="hp-promo">
                 {% block main_content %}
                 {% endblock %}
-
 							</div>
 
             </div>

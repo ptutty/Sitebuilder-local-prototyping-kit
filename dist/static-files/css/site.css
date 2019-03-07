@@ -2654,3 +2654,59 @@ h1.guide-topic-title {
   font-size: 12px !important;
   color: yellow !important;
   float: right; }
+
+/* css grid test */
+.grid-container {
+  display: grid;
+  grid-template: repeat(6, 1fr)/repeat(12, 1fr);
+  grid-gap: 3px; }
+
+.promo-banner {
+  grid-column: span 8;
+  grid-row: 1 / -1;
+  min-height: 280px;
+  background: url("/static-files/images/banners/female-redtop.png") 0px -100px #333 no-repeat;
+  background-size: cover; }
+
+.topic-menu-item {
+  grid-column: 9 / -1;
+  padding: 5px 12px;
+  color: white;
+  background-color: #eee; }
+  .topic-menu-item a {
+    text-decoration: none;
+    font-weight: 400; }
+
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em; }
+
+@media screen and (max-width: 680px) {
+  .promo-banner {
+    grid-column: span 12; }
+  .topic-menu {
+    grid-column: span 12; } }
+
+.hp-promo h2 {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500; }
+
+.hp-promo .scs-homepage-mega-links {
+  margin: 10px 0px 10px 0px;
+  padding: 5px 5px 20px 5px; }
+  .hp-promo .scs-homepage-mega-links .lighten {
+    font-weight: 300; }
+  .hp-promo .scs-homepage-mega-links h3 {
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600; }
+    .hp-promo .scs-homepage-mega-links h3 a {
+      text-decoration: none; }
+    .hp-promo .scs-homepage-mega-links h3 a:hover {
+      color: grey !important; }
+  .hp-promo .scs-homepage-mega-links p {
+    line-height: 18px;
+    font-size: 16px; }

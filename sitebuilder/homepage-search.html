@@ -1,0 +1,234 @@
+<html>
+ <head>
+  <link href="/services/careers2018/static-files/css/custom.css" rel="stylesheet" type="text/css">
+  <link href="/services/careers2018/static-files/css/scs-homepage.css" rel="stylesheet" type="text/css">
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/services/careers2018/static-files/js/vue.min.js"></script>
+
+  <style>
+     .algolia-autocomplete {
+       width: 100%;
+     }
+     .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+       width: 100%;
+     }
+     .algolia-autocomplete .aa-hint {
+       color: #999;
+     }
+     .algolia-autocomplete .aa-dropdown-menu {
+       width: 100%;
+       background-color: #fff;
+       border: 1px solid #999;
+       border-top: none;
+     }
+     .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+       cursor: pointer;
+       padding: 5px 4px;
+     }
+     .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+       background-color: #B2D7FF;
+     }
+     .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+       font-weight: bold;
+       font-style: normal;
+     }
+   </style>
+ </head>
+ <body>
+
+
+
+<div class="container">
+ <div class="row">
+   <div class="col-sm-6 col-sm-offset-3">
+     <form action="#" class="form">
+       <h3>Search careers</h3>
+       <input class="form-control" id="contacts" name="contacts" type="text" placeholder='Search careers and skills' />
+     </form>
+   </div>
+ </div>
+</div>
+<div class="hp-layout slideshow-2017 slideshow-layout-2017 slideshow-light-theme"> <!-- start tile carousel -->
+  <div class="row scs-homepage-mega-links blue-bkgd-box ">
+    <div class="col-sm-12">
+      <h2>Popular pages <span class="lighten">AtoZ </span> </h2>
+
+    </div>
+
+    <div class="col-sm-4">
+      <h3><a href="./advice/">Advice and appointments</a> </h3>
+
+      <p>Includes career guidance appointments, drop in sessions, workshops</p>
+
+      <h3><a href="./job-search/career-fairs/about-our-careers-fairs">Careers fairs and sector events</a> </h3>
+
+      <p>Includes where to start, assess your values, skills and strengths</p>
+
+      <h3><a href="./job-applications/cover-letters">Cover letters</a> </h3>
+
+      <p>Includes application forms, writing tips, examples</p>
+
+      <h3><a href="./job-applications/how-to-write-a-cv/introduction">CVs</a> </h3>
+
+      <p>CVs guide, writing tips, what to include</p>
+
+      <h3><a href="/services/careers/employers/">Employing warwick graduates</a> </h3>
+
+      <p>Recruiting at Warwick, connecting with graduate talent</p>
+
+      <h3><a href="./explore-your-options/further-study">Further study</a> </h3>
+
+      <p>Includes research students skills programme, postgraduate taught students</p>
+
+    </div>
+
+    <div class="col-sm-4">
+      <h3><a href="./advice/graduates">Graduates</a> </h3>
+
+      <p>Graduate destinations, support, recruitment cycle, case studies</p>
+
+      <h3><a href="./job-search/international">International careers</a> </h3>
+
+      <p>Includes overseas graduate jobs and internships</p>
+
+      <h3><a href="./interviews">Interviews</a> </h3>
+
+      <p>Includes interview support, video interviews, telephone interviews</p>
+
+      <h3><a href="./work-experience/internships">Internships</a> </h3>
+
+      <p>Including placements and work experience</p>
+
+      <h3><a href="./job-applications">Job applications</a> </h3>
+
+ Includes assessement centres, psychometric and aptitude tests, what to expect       <h3> <a href="/services/careers2018/job-search/">Job searching</a> </h3>
+
+      <p>Including placements and work experience, summer internships and careers fairs</p>
+
+    </div>
+
+    <div class="col-sm-4">
+      <h3><a href="./job-search/networking">Networking</a> </h3>
+
+      <p>Includes sector events, careers fairs, workshops and support</p>
+
+      <h3><a href="./explore-your-options/aptitude-and-personality">Personality types and motivation</a> </h3>
+
+      <p>Career motivations, goals, skills and strengthes</p>
+
+      <h3><a href="./job-search/researching-employers">Researching employers</a> </h3>
+
+      <p>Includes job sectors, what employers want, SMEs</p>
+
+      <h3><a href="https://warwick.ac.uk/services/skills">Skills development</a> </h3>
+
+      <p>Includes awards, personal development, study &amp; research skills, academic writing </p>
+
+      <h3><a href="https://myadvantage.warwick.ac.uk/students/jobs/search">Vacancies</a> </h3>
+
+      <p>Internships and graduate positions available from myAdvantage</p>
+
+      <h3><a href="/services/careers2018/work-experience/warwick-summer-internships/about-the-scheme">Warwick Summer Internships</a> </h3>
+
+      <p>Opportunites and skills development</p>
+
+    </div>
+
+  </div>
+
+  <div class="row row-spacer equal-height-md">
+    <div class="col-md-4">
+      <section id="eventList" class="box boxstyle_ box2">
+        <h2>Upcoming events</h2>
+
+        <ul class="media-list">
+          <li class="media" v-for="event in events">
+            <div class="media-body">
+              <h6 class="media-heading"> <a href="#"> {{ event.title }}</a> </h6>
+
+              <p> <em>{{ event.simpledate }}</em> </p>
+
+            </div>
+
+          </li>
+        </ul>
+
+        <p> <a href="https://myadvantage.warwick.ac.uk/students/events">View all events</a> </p>
+
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section id="jobsList" class="box boxstyle_ box1">
+        <h2>Latest careers opportunities</h2>
+
+        <ul class="media-list">
+          <li class="media" v-for="item in items">
+            <div class="media-body">
+              <h6 class="media-heading"> <a href="#"> {{ item.title }}</a> </h6>
+
+              <p class="event-dates event-dates"><em>{{ item.employerName }}</em> <br />
+                 </p>
+
+            </div>
+
+          </li>
+        </ul>
+
+        <p> <a href="https://myadvantage.warwick.ac.uk/students/jobs">View all opportunities</a> </p>
+
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <section class="box boxstyle_ box5">
+        <h2>Social Media</h2>
+
+<a class="twitter-timeline" href="https://twitter.com/WarwickCareers?ref_src=twsrc%5Etfw" data-height="580" data-chrome="nofooter noborders noheader"></a> <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <p><a href="http://www.twitter.com/WarwickCareers"><img src="https://www.careers.ox.ac.uk/wp-content/uploads/2017/06/twitterBird.png" width="20px" style="margin-right:10px" border="0" /></a> Follow us on <a class="whiteLink" href="http://www.twitter.com/WarwickCareers"><strong>Twitter</strong></a><br />
+           </p>
+
+      </section>
+    </div>
+
+  </div>
+
+</div>
+
+<script id="jobs-feed-script" src="/services/careers2018/static-files/js/jobs-feed.js" display="7"></script>
+<script id="event-feed-script" src="/services/careers2018/static-files/js/event-feed.js" display="7"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script>
+
+const client = algoliasearch("776UGMDCO8", "8c1b93c1e7dd111c6f142c330090ec69");
+const index = client.initIndex("T02_push");
+
+index.setSettings({
+  // custom ranking - i.e. business logic
+  customRanking: ["desc(isFeatured)" , "desc(endorsements)"],
+  searchableAttributes: ["title","keywords" ]
+})
+
+$('#contacts').autocomplete({ hint: false }, [
+  {
+    source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+    displayKey: 'title',
+    templates: {
+      suggestion: function(suggestion) {
+        return suggestion._highlightResult.title.value;
+      }
+    }
+  }
+]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
+    console.log(suggestion.path);
+    window.location = suggestion.path;
+});
+
+
+</script>
+
+</body>
+</html>

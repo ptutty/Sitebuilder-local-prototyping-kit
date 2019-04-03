@@ -21,7 +21,7 @@
           <div class="column-1">
             <div class="column-1-content">
 
-              {% include 'components/grid-test.njk' %}
+              {% include 'components/algolia-search.njk' %}
 
 							<div class="hp-promo">
                 {% block main_content %}
@@ -34,5 +34,10 @@
       </div>
     </main>
 
+
+<script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="/static-files/js/careers-autocomplete.js"></script>
 
 {% include 'partials/footer.njk' %}

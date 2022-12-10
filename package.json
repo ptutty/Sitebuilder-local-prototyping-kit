@@ -9,7 +9,7 @@
     "start": " ./node_modules/.bin/gulp default"
   },
   "devDependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "gulp": "^3.9.1",
     "gulp-livereload": "^4.0.0",
     "gulp-nodemon": "^2.4.1",
